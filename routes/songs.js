@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const songs = require('../models/songs');
+const Songs = require('../models/songs');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -9,8 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/all', async function(req,res) {
     try{
-      const Songs = await songs.find()
-      res.json(Songs);
+      const songs = await Songs.find()
+      res.json(songs);
     } catch (error) {
       console.log(error);
     }

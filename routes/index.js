@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const Users = require('../models/users');
+const songs = require('../models/songs');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try{
-        const users = await Users.find()
-        res.render('index', { title: 'Express', users: users });
+        const users = await songs.find();
+        res.render('index', { title: 'Current Favorite Songs', song: Songs });
       } catch (error) {
         console.log(error);
       }
